@@ -395,6 +395,15 @@ With all my love,
         <img id="lightboxImg" src="" alt="" />
     </div>
 
+    <!-- Top-level full-screen letter modal (used by fallback JS) -->
+    <div id="letterModal" class="letter-modal" aria-hidden="true">
+        <div class="letter-backdrop" onclick="closeLetterModal()"></div>
+        <div class="modal-paper">
+            <button id="modalClose" class="close-letter" onclick="closeLetterModal()">×</button>
+            <div id="modalContent" class="modal-content" role="document"></div>
+        </div>
+    </div>
+
     <!-- Inline fallback script: ensures envelope interactivity even if external assets fail to load -->
     <script>
     (function(){
@@ -420,6 +429,28 @@ With all my love,
         function closeAllEnvelopes(){
             document.querySelectorAll('.envelope.open').forEach(function(el){ el.classList.remove('open'); });
             document.body.classList.remove('modal-open');
+            closeLetterModal();
+        }
+
+        function openLetterModalFromEnv(env){
+            var paper = env.querySelector('.paper');
+            if(!paper) return;
+            var content = paper.querySelector('.letter-inner');
+            if(!content) return;
+            var modal = document.getElementById('letterModal');
+            var modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = content.innerHTML;
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeLetterModal(){
+            var modal = document.getElementById('letterModal');
+            if(!modal) return;
+            modal.setAttribute('aria-hidden', 'true');
+            var modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = '';
+            document.body.classList.remove('modal-open');
         }
 
         function initEnvelopes(){
@@ -433,20 +464,14 @@ With all my love,
                 // ensure we don't double-bind
                 env.addEventListener('click', function(e){
                     e.stopPropagation();
-                    var isOpen = env.classList.contains('open');
-                    closeAllEnvelopes();
-                    if(!isOpen){
-                        env.classList.add('open');
-                        // lock background scroll
-                        document.body.classList.add('modal-open');
-                    }
+                    // open the top-level modal with this envelope's letter
+                    openLetterModalFromEnv(env);
                 });
             });
 
+            // make internal close-letter buttons no-op (we use modal close)
             document.querySelectorAll('.close-letter').forEach(function(btn){
-                var handler = function(e){ e.stopPropagation(); var env = btn.closest('.envelope'); if(env) env.classList.remove('open'); document.body.classList.remove('modal-open'); };
-                btn._copilotBound = handler;
-                btn.addEventListener('click', handler);
+                btn.style.display = 'none';
             });
 
             // clicking outside envelopes closes them
