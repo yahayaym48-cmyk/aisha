@@ -4,13 +4,16 @@
 /* ========== ROOT & VARIABLES ========== */
 :root {
     --ivory: #fffaf7;
-    --blush-bg: #f9f3f1;
-    --soft-rose: #f4b5c8;
-    --dusty-rose: #e8a0b6;
-    --deeper-rose: #8b3a52;
+    --blush-bg: #fff2f4; /* very light blush */
+    --soft-rose: #f7d7dd;
+    --dusty-rose: #e9bfc8;
+    --deeper-rose: #7a2e3a; /* deep mauve/coffee */
+    --mauve: #7b2e3a;
+    --coffee: #4a2e2a;
     --gold: #d4af37;
-    --dark-text: #2d1b22;
-    --light-text: #5d4a52;
+    --dark-text: #3b2226; /* coffee brown */
+    --light-text: #8b6a6f; /* muted dusty rose */
+    --muted-label: #cfa9ad; /* soft gray-pink */
     
     --serif-font: 'Playfair Display', 'Georgia', 'Garamond', serif;
     --sans-font: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
@@ -30,10 +33,9 @@ html {
 
 body {
     font-family: var(--sans-font);
-    background: linear-gradient(135deg, rgba(255, 250, 247, 0.95) 0%, rgba(249, 243, 241, 0.95) 50%, rgba(255, 250, 247, 0.95) 100%), 
-                url('./images/WhatsApp Image 2026-08-25 at 5.53.47 AM.jpeg') fixed center/cover;
-    background-attachment: fixed;
-    background-size: cover;
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(255,230,233,0.6), transparent 10%),
+                radial-gradient(900px 400px at 90% 85%, rgba(255,240,243,0.5), transparent 8%),
+                linear-gradient(180deg, var(--blush-bg) 0%, #fff9fb 100%);
     color: var(--dark-text);
     line-height: 1.6;
     overflow-x: hidden;
@@ -295,20 +297,39 @@ button:hover {
 
 .landing-content h1 {
     font-family: var(--serif-font);
-    font-size: 4rem;
+    font-size: 4.4rem;
     font-weight: 400;
-    color: var(--dark-text);
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.08em;
-    line-height: 1.1;
+    color: var(--mauve);
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.02em;
+    line-height: 1.02;
 }
 
 .landing-content p {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     color: var(--light-text);
     margin-bottom: 0.8rem;
     font-weight: 300;
     letter-spacing: 0.04em;
+}
+
+.eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted-label);
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+.hero-photo {
+    width: 84px;
+    height: 84px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin: 0.8rem auto 1.2rem;
+    box-shadow: 0 10px 30px rgba(122,46,58,0.06);
+    border: 1px solid rgba(122,46,58,0.06);
 }
 
 .landing-content .subtext {
@@ -344,8 +365,17 @@ h2 {
     color: var(--deeper-rose);
     margin-bottom: 3.5rem;
     text-align: center;
-    letter-spacing: 0.06em;
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.02em;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.chapter-label {
+    font-size: 0.72rem;
+    color: var(--muted-label);
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
 }
 
 /* ========== GALLERY ========== */
