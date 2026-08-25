@@ -406,40 +406,41 @@ With all my love,
             document.querySelectorAll('.envelope.open').forEach(function(el){ el.classList.remove('open'); });
         }
 
-        document.addEventListener('click', function(ev){
-            // If click outside any envelope, close all
-            if(!ev.target.closest('.envelope')){
-                closeAllEnvelopes();
-            }
-        }, { passive: true });
+        function initEnvelopes(){
+            // close buttons inside letters
+            document.querySelectorAll('.close-letter').forEach(function(btn){
+                btn.removeEventListener('click', btn._copilotBound);
+            });
 
-        // Attach handlers to envelopes
-        document.addEventListener('DOMContentLoaded', function(){
             document.querySelectorAll('.envelope').forEach(function(env){
                 env.classList.remove('open');
+                // ensure we don't double-bind
                 env.addEventListener('click', function(e){
                     e.stopPropagation();
                     var isOpen = env.classList.contains('open');
-                    // close others first
                     closeAllEnvelopes();
-                    if(!isOpen){ env.classList.add('open'); }
+                    if(!isOpen) env.classList.add('open');
                 });
             });
 
-            // close buttons inside letters
             document.querySelectorAll('.close-letter').forEach(function(btn){
-                btn.addEventListener('click', function(e){
-                    e.stopPropagation();
-                    var env = btn.closest('.envelope');
-                    if(env) env.classList.remove('open');
-                });
+                var handler = function(e){ e.stopPropagation(); var env = btn.closest('.envelope'); if(env) env.classList.remove('open'); };
+                btn._copilotBound = handler;
+                btn.addEventListener('click', handler);
             });
+
+            // clicking outside envelopes closes them
+            document.addEventListener('click', function(ev){ if(!ev.target.closest('.envelope')) closeAllEnvelopes(); }, { passive: true });
 
             // Escape key closes envelopes
-            document.addEventListener('keydown', function(ev){
-                if(ev.key === 'Escape') closeAllEnvelopes();
-            });
-        });
+            document.addEventListener('keydown', function(ev){ if(ev.key === 'Escape') closeAllEnvelopes(); });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initEnvelopes);
+        } else {
+            initEnvelopes();
+        }
     })();
     </script>
 
