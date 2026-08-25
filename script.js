@@ -410,3 +410,23 @@ document.addEventListener('keydown', function(ev){
         document.querySelectorAll('.envelope.open').forEach(el => el.classList.remove('open'));
     }
 });
+
+// Reveal-on-scroll: observe elements with .reveal-on-scroll and toggle .visible
+(function(){
+    if (!('IntersectionObserver' in window)){
+        // fallback: make elements visible
+        document.querySelectorAll('.reveal-on-scroll').forEach(el=> el.classList.add('visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+})();
