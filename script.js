@@ -80,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update countdowns (only if the related elements exist)
     updateCountdowns();
     setInterval(updateCountdowns, 1000);
+
+    // Ensure all envelopes start closed (no accidental open state)
+    document.querySelectorAll('.envelope').forEach(el => el.classList.remove('open'));
 });
 
 /* Authentication removed: site is public */
