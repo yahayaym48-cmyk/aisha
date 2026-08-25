@@ -380,6 +380,68 @@ With all my love,
         <img id="lightboxImg" src="" alt="" />
     </div>
 
-    <script src="script.js"></script>
+    <!-- Inline fallback script: ensures envelope interactivity even if external assets fail to load -->
+    <script>
+    (function(){
+        // Lightbox helpers
+        function openLightbox(src){
+            var lb = document.getElementById('lightbox');
+            var img = document.getElementById('lightboxImg');
+            if(!lb || !img) return;
+            img.src = src;
+            lb.classList.add('open');
+        }
+        function closeLightbox(){
+            var lb = document.getElementById('lightbox');
+            var img = document.getElementById('lightboxImg');
+            if(!lb || !img) return;
+            lb.classList.remove('open');
+            setTimeout(function(){ img.src = ''; }, 300);
+        }
+        window.openLightbox = openLightbox;
+        window.closeLightbox = closeLightbox;
+
+        // Envelope behavior fallback
+        function closeAllEnvelopes(){
+            document.querySelectorAll('.envelope.open').forEach(function(el){ el.classList.remove('open'); });
+        }
+
+        document.addEventListener('click', function(ev){
+            // If click outside any envelope, close all
+            if(!ev.target.closest('.envelope')){
+                closeAllEnvelopes();
+            }
+        }, { passive: true });
+
+        // Attach handlers to envelopes
+        document.addEventListener('DOMContentLoaded', function(){
+            document.querySelectorAll('.envelope').forEach(function(env){
+                env.classList.remove('open');
+                env.addEventListener('click', function(e){
+                    e.stopPropagation();
+                    var isOpen = env.classList.contains('open');
+                    // close others first
+                    closeAllEnvelopes();
+                    if(!isOpen){ env.classList.add('open'); }
+                });
+            });
+
+            // close buttons inside letters
+            document.querySelectorAll('.close-letter').forEach(function(btn){
+                btn.addEventListener('click', function(e){
+                    e.stopPropagation();
+                    var env = btn.closest('.envelope');
+                    if(env) env.classList.remove('open');
+                });
+            });
+
+            // Escape key closes envelopes
+            document.addEventListener('keydown', function(ev){
+                if(ev.key === 'Escape') closeAllEnvelopes();
+            });
+        });
+    })();
+    </script>
+
 </body>
 </html>
