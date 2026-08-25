@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Aisha - Happy Birthday</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- PASSWORD GATE (INITIAL SCREEN) -->
+    <div id="passwordGate" class="gate-container">
+        <div class="gate-content">
+            <h1>This space is private.</h1>
+            <p>Enter the password to continue.</p>
+            <div class="input-group">
+                <input type="password" id="passwordInput" placeholder="Password" />
+                <button onclick="checkPassword()">Enter</button>
+            </div>
+            <p id="passwordError" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- MAIN SITE (HIDDEN UNTIL PASSWORD) -->
+    <div id="mainSite" class="hidden">
+        <!-- AUDIO CONTROLS (Floating) -->
+        <div class="audio-controls">
+            <button id="bgMusicToggle" class="control-btn" title="Pause/Play Background Music">
+                <span id="bgMusicIcon">⏸</span>
+            </button>
+        </div>
+
+        <!-- LANDING PAGE -->
+        <section id="landing" class="section landing-section">
+            <div class="landing-content">
+                <h1 class="fade-in">Happy Birthday.</h1>
+                <p class="fade-in delay-1">This is a private moment.</p>
+                <p class="subtext fade-in delay-2">Built for you. Written by someone who sees you.</p>
+                <p class="fade-in delay-3" style="font-size: 1.05rem; margin-top: 1.5rem;">August feels closer because you exist.</p>
+                <button class="scroll-btn fade-in delay-4" onclick="smoothScroll('section2')">Enter</button>
+            </div>
+            <div class="background-blur"></div>
+        </section>
+
+        <!-- SECTION 1 / CHAPTER 1: THINGS I NEVER SAID BUT ALWAYS FELT -->
+        <section id="section2" class="section">
+            <div class="container">
+                <h2>Chapter 1: Things I Never Said But Always Felt</h2>
+                <div class="love-paragraphs">
+                    <p class="love-paragraph fade-in">You make me feel safe in ways I never knew I needed.</p>
+                    <p class="love-paragraph fade-in delay-1">With you, life feels softer, lighter, and more meaningful.</p>
+                    <p class="love-paragraph fade-in delay-2">Your presence turns ordinary moments into memories I want to keep forever.</p>
+                    <p class="love-paragraph fade-in delay-3">Loving you has taught me that peace can exist in another person.</p>
+                    <p class="love-paragraph fade-in delay-4">Sometimes I look at you and quietly thank Allah for bringing you into my life.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2 / CHAPTER 2: THINGS YOU PROBABLY DIDN'T KNOW -->
+        <section id="section2b" class="section why-love-section">
+            <div class="container">
+                <h2>Chapter 2: Things You Probably Didn’t Know</h2>
+                <div class="love-paragraphs">
+                    <p class="love-paragraph fade-in">I look forward to your notifications more than I admit.</p>
+                    <p class="love-paragraph fade-in delay-1">Some of the happiest moments of my day begin with a message from you.</p>
+                    <p class="love-paragraph fade-in delay-2">There are random moments when something reminds me of you and I smile without realizing it.</p>
+                    <p class="love-paragraph fade-in delay-3">Sometimes I reread our conversations just because I miss you.</p>
+                    <p class="love-paragraph fade-in delay-4">You occupy more of my thoughts than you probably know.</p>
+                    <p class="love-paragraph fade-in delay-5">Your happiness matters to me more than you realize.</p>
+                    <p class="love-paragraph fade-in delay-6">I notice the little things about you, even the things you think nobody sees.</p>
+                    <p class="love-paragraph fade-in delay-7">Even on difficult days, thoughts of you make things feel easier.</p>
+                    <p class="love-paragraph fade-in delay-8">I silently pray for you more often than I mention.</p>
+                    <p class="love-paragraph fade-in delay-9">The future feels brighter when I imagine it with you in it.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEMORIES / CHAPTER 3: MEMORIES -->
+        <section id="memories" class="section">
+            <div class="container">
+                <h2>Chapter 3: Memories</h2>
+                <p class="subtext">A quiet photo book of moments I keep close.</p>
+                <div class="polaroid-grid">
+                    <div class="polaroid fade-in"><img src="./images/WhatsApp Image 2026-08-25 at 5.52.59 AM.jpeg" alt="Aisha" onclick="openLightbox(this.src, 'A quiet morning')"/><div class="caption">A quiet morning</div></div>
+                    <div class="polaroid fade-in delay-1"><img src="./images/WhatsApp Image 2026-08-25 at 5.53.46 AM (1).jpeg" alt="Aisha" onclick="openLightbox(this.src, 'A small laugh')"/><div class="caption">A small laugh</div></div>
+                    <div class="polaroid fade-in delay-2"><img src="./images/WhatsApp Image 2026-08-25 at 5.53.46 AM.jpeg" alt="Aisha" onclick="openLightbox(this.src, 'Captured light')"/><div class="caption">Captured light</div></div>
+                    <div class="polaroid fade-in delay-3"><img src="./images/WhatsApp Image 2026-08-25 at 5.53.47 AM (1).jpeg" alt="Aisha" onclick="openLightbox(this.src, 'Stolen smile')"/><div class="caption">Stolen smile</div></div>
+                    <div class="polaroid fade-in delay-4"><img src="./images/WhatsApp Image 2026-08-25 at 5.53.47 AM (2).jpeg" alt="Aisha" onclick="openLightbox(this.src, 'Soft afternoon')"/><div class="caption">Soft afternoon</div></div>
+                    <div class="polaroid fade-in delay-5"><img src="./images/WhatsApp Image 2026-08-25 at 5.53.47 AM (3).jpeg" alt="Aisha" onclick="openLightbox(this.src, 'Remember this')"/><div class="caption">Remember this</div></div>
+                    <div class="polaroid fade-in delay-6"><img src="./images/WhatsApp Image 2026-08-25 at 5.53.47 AM.jpeg" alt="Aisha" onclick="openLightbox(this.src, 'Together')"/><div class="caption">Together</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPECIAL MUSIC BUTTON -->
+        <section id="section5" class="section special-section">
+            <div class="container">
+                <button class="special-btn" onclick="playSpecialAudio()">
+                    Play something special.
+                </button>
+            </div>
+        </section>
+        <!-- CHAPTER 4: OPEN WHEN (ENVELOPE EXPERIENCE) -->
+        <section id="open-when" class="section chapter-bg-4" style="padding: 7rem 2rem;">
+            <div class="container">
+                <h2>Chapter 4: Open When</h2>
+                <p class="subtext">Tap an envelope to open a private letter.</p>
+
+                <div class="letters-collection">
+                    <!-- Envelope: Open when you miss me -->
+                    <div class="envelope-item fade-in">
+                        <div class="envelope" id="env-miss" onclick="openEnvelope(event,'env-miss')" role="button" tabindex="0">
+                            <div class="envelope-body">
+                                <div class="flap"></div>
+                                <div class="body-content">
+                                    <div class="seal">❤</div>
+                                    <div class="env-title">Open When You Miss Me</div>
+                                </div>
+                            </div>
+                            <div class="letter">
+                                <div class="paper">
+                                    <button class="close-letter" onclick="closeEnvelope(event,'env-miss')">Close</button>
+                                    <div class="letter-inner">
+                                        <p>My love,</p>
+                                        <p>If you are holding this because the distance feels a little too big right now, know that you are the nearest thing to my heart even when miles separate us. I carry your laugh, your small gestures, and the way you tilt your head when you're thinking — these are with me always.</p>
+                                        <p>Remember the quiet mornings we spent with simple tea and soft sunlight? Those mornings live in me; they are steady reminders that you are mine and I am yours. When you miss me, close your eyes and breathe — I'm there in the memory of your warmth, in the echo of your smile.</p>
+                                        <p>Until we are together again, keep this: I miss you more than words hold, and thinking of you makes every ordinary moment glow a little brighter.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Envelope: Open when we have a fight -->
+                    <div class="envelope-item fade-in delay-1">
+                        <div class="envelope" id="env-fight" onclick="openEnvelope(event,'env-fight')" role="button" tabindex="0">
+                            <div class="envelope-body">
+                                <div class="flap"></div>
+                                <div class="body-content">
+                                    <div class="seal">❤</div>
+                                    <div class="env-title">Open When We Have A Fight</div>
+                                </div>
+                            </div>
+                            <div class="letter">
+                                <div class="paper">
+                                    <button class="close-letter" onclick="closeEnvelope(event,'env-fight')">Close</button>
+                                    <div class="letter-inner">
+                                        <p>My dearest,</p>
+                                        <p>If you're reading this after a disagreement, first let me say: I'm sorry. Disagreements are the clumsy way two imperfect people try to be understood. They do not make us less; they teach us how to listen more carefully.</p>
+                                        <p>I promise you this — my love for you is not a score to be won or lost. When we argue, my goal is not to be right; my goal is to understand you and find our way back. Take a breath. Take your time. I will wait, and when you are ready, I'll meet you there with patience and humility.</p>
+                                        <p>We are on the same team, always. I choose you, again and again.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Envelope: Open when you feel sad -->
+                    <div class="envelope-item fade-in delay-2">
+                        <div class="envelope" id="env-sad" onclick="openEnvelope(event,'env-sad')" role="button" tabindex="0">
+                            <div class="envelope-body">
+                                <div class="flap"></div>
+                                <div class="body-content">
+                                    <div class="seal">❤</div>
+                                    <div class="env-title">Open When You Feel Sad</div>
+                                </div>
+                            </div>
+                            <div class="letter">
+                                <div class="paper">
+                                    <button class="close-letter" onclick="closeEnvelope(event,'env-sad')">Close</button>
+                                    <div class="letter-inner">
+                                        <p>Sweetheart,</p>
+                                        <p>Sadness is not a flaw; it is a deep human language that asks to be seen and held. If the weight feels heavy today, please be gentle with yourself. Let the tears come if they need to; let me be the shoulder you lean on when words are not enough.</p>
+                                        <p>I wish I could take away the ache, but since I cannot, I will offer steadiness: a warm tea, a quiet ear, and the promise that you are not alone in this. Your feelings are valid, and together we'll sit through the storm until the light finds us again.</p>
+                                        <p>You are stronger than you know, and softer than you think you must be. Rest in that truth for a little while.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Envelope: Open when you doubt yourself -->
+                    <div class="envelope-item fade-in delay-3">
+                        <div class="envelope" id="env-doubt" onclick="openEnvelope(event,'env-doubt')" role="button" tabindex="0">
+                            <div class="envelope-body">
+                                <div class="flap"></div>
+                                <div class="body-content">
+                                    <div class="seal">❤</div>
+                                    <div class="env-title">Open When You Doubt Yourself</div>
+                                </div>
+                            </div>
+                            <div class="letter">
+                                <div class="paper">
+                                    <button class="close-letter" onclick="closeEnvelope(event,'env-doubt')">Close</button>
+                                    <div class="letter-inner">
+                                        <p>My brave one,</p>
+                                        <p>When doubt whispers that you are not enough, I want you to remember the quiet ways you show courage. You are patient when it would be easier to be angry. You are generous when it would be easier not to notice.</p>
+                                        <p>I see your efforts—the late nights, the brave attempts, the kindness you offer without being asked. Your worth is not measured by any single moment of certainty. You are worthy simply because you are you. Trust the heart I trusted when I chose you.</p>
+                                        <p>Lean on me when the noise gets loud; I will remind you of everything you already are.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Envelope: Open when you need to feel loved -->
+                    <div class="envelope-item fade-in delay-4">
+                        <div class="envelope" id="env-loved" onclick="openEnvelope(event,'env-loved')" role="button" tabindex="0">
+                            <div class="envelope-body">
+                                <div class="flap"></div>
+                                <div class="body-content">
+                                    <div class="seal">❤</div>
+                                    <div class="env-title">Open When You Need To Feel Loved</div>
+                                </div>
+                            </div>
+                            <div class="letter">
+                                <div class="paper">
+                                    <button class="close-letter" onclick="closeEnvelope(event,'env-loved')">Close</button>
+                                    <div class="letter-inner">
+                                        <p>My love,</p>
+                                        <p>If for a moment you forget how deeply loved you are, let this letter be the echo that brings it back. You are cherished—by the way I notice the smallest things that make you, you. I pray for you quietly and often. I celebrate your successes and shelter you through your doubts.</p>
+                                        <p>Your presence in my life is a mercy and a blessing. I respect you for who you are and for the ways you make me want to be better. You are loved beyond measure, by words, deeds, and the quiet constancy of my heart.</p>
+                                        <p>Keep this close: you are enough. You are loved. Always.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Envelope: For My Baby, Aisha -->
+                    <div class="envelope-item fade-in delay-5">
+                        <div class="envelope" id="env-baby" onclick="openEnvelope(event,'env-baby')" role="button" tabindex="0">
+                            <div class="envelope-body">
+                                <div class="flap"></div>
+                                <div class="body-content">
+                                    <div class="seal">❤</div>
+                                    <div class="env-title">For My Baby, Aisha</div>
+                                </div>
+                            </div>
+                            <div class="letter">
+                                <div class="paper">
+                                    <button class="close-letter" onclick="closeEnvelope(event,'env-baby')">Close</button>
+                                    <div class="letter-inner">
+                                        <p>Aisha,</p>
+                                        <p>There are so many quiet ways you have filled my life with meaning. You are the morning light that makes ordinary days honey-gold. You are the laughter that loosens my shoulders and the patience that steadies my heart.</p>
+                                        <p>I love you for every small thing: the way you tuck your hair behind your ear, the notes you leave without announcing them, the steady kindness you show to those around you. Loving you has reshaped what I thought love could be—gentle, calm, and endlessly patient.</p>
+                                        <p>Thank you for trusting me with your heart. I promise to hold it gently, protect it fiercely, and cherish it every day. You are my home, my favorite story, and my future.</p>
+                                        <p>Always yours,<br>— Ibrahim</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 5: THE FUTURE I HOPE WE BUILD -->
+        <section id="future" class="section">
+            <div class="container">
+                <h2>Chapter 5: The Future I Hope We Build</h2>
+                <p class="gift-subtext">A few small hopes for a lifetime together.</p>
+                <div class="hope-cards">
+                    <div class="hope-card bg-1 fade-in">
+                        <div class="scene-title">Morning Promises</div>
+                        <p>I hope we continue choosing each other every single day.</p>
+                    </div>
+                    <div class="hope-card bg-2 fade-in delay-1">
+                        <div class="scene-title">A Home of Laughter</div>
+                        <p>I hope our home is filled with peace, laughter, and love.</p>
+                    </div>
+                    <div class="hope-card bg-3 fade-in delay-2">
+                        <div class="scene-title">Growing Together</div>
+                        <p>I hope we grow together and support each other through every season of life.</p>
+                    </div>
+                    <div class="hope-card bg-4 fade-in delay-3">
+                        <div class="scene-title">Memory Lane</div>
+                        <p>I hope we create beautiful memories that we will one day look back on and smile.</p>
+                    </div>
+                    <div class="hope-card bg-5 fade-in delay-4">
+                        <div class="scene-title">Still Us</div>
+                        <p>I hope that years from now, we still look at each other with the same warmth and gratitude.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 6: FOR MY BABY, AISHA -->
+        <section id="for-my-baby" class="section" style="padding:6rem 2rem;">
+            <div class="container">
+                <h2>Chapter 6: For My Baby, Aisha</h2>
+                <div class="hidden-letter-content">
+                    <p>You are not loud.</p>
+                    <p>You are not dramatic.</p>
+                    <p>You are steady.</p>
+                    <p>And that's rare.</p>
+                    <p>I don't admire you because it's your birthday.</p>
+                    <p>I admire you because of who you are on random Tuesdays.</p>
+                    <p>I'm not rushing you.</p>
+                    <p>I'm not pressuring you.</p>
+                    <p>I'm just choosing you — calmly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- (Summary section removed as requested) -->
+
+        <!-- FINAL SECTION (EXACT TEXT) -->
+        <section id="final" class="section final-section" style="background: linear-gradient(180deg,#fff0f6,#f7f0fb);">
+            <div class="container final-container">
+                <pre class="final-text" style="white-space: pre-wrap; font-family: inherit; font-size:1rem;">So…
+We’ve reached the end.
+Or maybe…
+This is simply the end of one chapter.
+
+Thank you for taking the time to read all of this.
+Thank you for being patient enough to scroll through every memory, every thought, and every letter.
+
+This website may have been built with code…
+But every word came from my heart.
+
+I know a website could never fully express what you mean to me.
+But I hope it reminded you of one thing.
+
+You are appreciated.
+You are respected.
+You are deeply loved.
+
+And I’m incredibly grateful that our paths crossed.
+
+I don’t know what every tomorrow will bring.
+But I know who I’d love to keep sharing them with.
+
+You.
+
+Happy Birthday, Wifey ❤️
+
+With all my love,
+— Ibrahim</pre>
+            </div>
+        </section>
+    </div>
+
+    <!-- HIDDEN PAGE PASSWORD GATE -->
+    <div id="hiddenGate" class="gate-container hidden">
+        <div class="gate-content">
+            <p style="font-size: 0.9rem; margin-bottom: 2rem;">Enter the name I call you when it's just us.</p>
+            <div class="input-group">
+                <input type="text" id="hiddenPasswordInput" placeholder="Answer" />
+                <button onclick="checkHiddenPassword()">Enter</button>
+            </div>
+            <p id="hiddenPasswordError" class="error-message"></p>
+            <button class="back-btn" onclick="closeHiddenGate()">↑ Back</button>
+        </div>
+    </div>
+
+    <!-- HIDDEN CONTENT PAGE -->
+    <div id="hiddenPage" class="hidden main-page">
+        <div class="container letter-section">
+            <button class="back-btn-hidden" onclick="backFromHidden()">← Back</button>
+            
+            <div class="hidden-letter-content">
+                <p>You are not loud.</p>
+                <p>You are not dramatic.</p>
+                <p>You are steady.</p>
+                <p><br></p>
+                <p>And that's rare.</p>
+                <p><br></p>
+                <p>I don't admire you because it's your birthday.</p>
+                <p>I admire you because of who you are on random Tuesdays.</p>
+                <p><br></p>
+                <p>I'm not rushing you.</p>
+                <p>I'm not pressuring you.</p>
+                <p><br></p>
+                <p>I'm just choosing you — calmly.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUDIO ELEMENTS (Hidden) -->
+    <audio id="backgroundMusic"></audio>
+    <audio id="specialAudio"></audio>
+
+    <!-- LIGHTBOX FOR MEMORIES -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightboxImg" src="" alt="" />
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Aisha - Happy Birthday</title>
+    
+  <link rel="stylesheet" href="/assets/index-07808db7.css">
+</head>
+<body>
+    <!-- PASSWORD GATE (INITIAL SCREEN) -->
+    <div id="passwordGate" class="gate-container">
+        <div class="gate-content">
+            <h1>This space is private.</h1>
+            <p>Enter the password to continue.</p>
+            <div class="input-group">
+                <input type="password" id="passwordInput" placeholder="Password" />
+                <button onclick="checkPassword()">Enter</button>
+            </div>
+            <p id="passwordError" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- MAIN SITE (HIDDEN UNTIL PASSWORD) -->
+    <div id="mainSite" class="hidden">
+        <!-- AUDIO CONTROLS (Floating) -->
+        <div class="audio-controls">
+            <button id="bgMusicToggle" class="control-btn" title="Pause/Play Background Music">
+                <span id="bgMusicIcon">⏸</span>
+            </button>
+        </div>
+
+        <!-- LANDING PAGE -->
+        <section id="landing" class="section landing-section">
+            <div class="landing-content">
+                <h1 class="fade-in">Happy Birthday.</h1>
+                <p class="fade-in delay-1">This is a private moment.</p>
+                <p class="subtext fade-in delay-2">Built for you. Written by someone who sees you.</p>
+                <p class="fade-in delay-3" style="font-size: 1.05rem; margin-top: 1.5rem;">March feels closer because you exist.</p>
+                <button class="scroll-btn fade-in delay-4" onclick="smoothScroll('section2')">Enter</button>
+            </div>
+            <div class="background-blur"></div>
+        </section>
+
+        <!-- SECTION 1: THE WAY I SEE YOU -->
+        <section id="section2" class="section">
+            <div class="container">
+                <h2>The Way I See You</h2>
+                <div class="gallery">
+                    <div class="gallery-item fade-in">
+                        <img src="/assets/WhatsApp Image 2026-08-25 at 5.52.59 AM-b3a617f2.jpeg" alt="Aisha Gallery" class="gallery-image"/>
+                        <p class="image-caption"></p>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="/assets/WhatsApp Image 2026-08-25 at 5.53.46 AM (1)-981b531c.jpeg" alt="Aisha Gallery" class="gallery-image"/>
+                        <p class="image-caption"></p>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="/assets/WhatsApp Image 2026-08-25 at 5.53.46 AM-acf411ef.jpeg" alt="Aisha Gallery" class="gallery-image"/>
+                        <p class="image-caption"></p>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="/assets/WhatsApp Image 2026-08-25 at 5.53.47 AM-66794d02.jpeg" alt="Aisha Gallery" class="gallery-image"/>
+                        <p class="image-caption"></p>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="/assets/WhatsApp Image 2026-08-25 at 5.53.47 AM (2)-09cdca03.jpeg" alt="Aisha Gallery" class="gallery-image"/>
+                        <p class="image-caption"></p>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="/assets/WhatsApp Image 2026-08-25 at 5.53.47 AM (3)-ab6a5819.jpeg" alt="Aisha Gallery" class="gallery-image"/>
+                        <p class="image-caption"></p>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="/assets/WhatsApp Image 2026-08-25 at 5.53.47 AM-66794d02.jpeg" alt="Aisha Gallery" class="gallery-image"/>
+                        <p class="image-caption"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: WHY I LOVE YOU -->
+        <section id="section2b" class="section why-love-section">
+            <div class="container">
+                <h2>Why I Love You</h2>
+                <div class="love-paragraphs">
+                    <p class="love-paragraph fade-in">I love how you make calm feel exciting without even trying. Being around you makes ordinary moments feel special.</p>
+                    <p class="love-paragraph fade-in delay-1">I'm grateful for your patience and quiet strength. You carry yourself with a grace that inspires me every day.</p>
+                    <p class="love-paragraph fade-in delay-2">You notice the little things and make them meaningful. Every small act reminds me how lucky I am to have you in my life.</p>
+                    <p class="love-paragraph fade-in delay-3">I love your laughter, your thoughts, and the way your presence softens the world around you. You are gentle, yet powerful.</p>
+                    <p class="love-paragraph fade-in delay-4">I love you not just for the days we celebrate, but for the ordinary days, the little things, and the way you make life feel whole.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: GIFT SELECTION -->
+        <section id="section4" class="section">
+            <div class="container">
+                <h2>Your Gift Is Waiting 🇳🇬</h2>
+                <p class="gift-subtext">Reserved. Redeemable March 2026.</p>
+                
+                <div class="countdown-container">
+                    <p class="countdown-label">Countdown to your gift:</p>
+                    <div id="countdown">
+                        <span id="days">0</span>d <span id="hours">0</span>h <span id="minutes">0</span>m <span id="seconds">0</span>s
+                    </div>
+                </div>
+
+                <div class="gift-cards">
+                    <div class="gift-card" onclick="selectGift(0)">
+                        <p>Private Dinner Planned by Me</p>
+                    </div>
+                    <div class="gift-card" onclick="selectGift(1)">
+                        <p>Professional Couple Photoshoot</p>
+                    </div>
+                    <div class="gift-card" onclick="selectGift(2)">
+                        <p>A Full Surprise Day</p>
+                    </div>
+                    <div class="gift-card" onclick="selectGift(3)">
+                        <p>Mystery Gift</p>
+                    </div>
+                </div>
+                
+                <p id="giftMessage" class="gift-message"></p>
+            </div>
+        </section>
+
+        <!-- SPECIAL MUSIC BUTTON -->
+        <section id="section5" class="section special-section">
+            <div class="container">
+                <button class="special-btn" onclick="playSpecialAudio()">
+                    Play something special.
+                </button>
+            </div>
+        </section>
+        <!-- VIDEO GALLERY SECTION -->
+        <section id="video-gallery" class="section" style="padding: 7rem 2rem;">
+            <div class="container">
+                <h2>For You</h2>
+                <div class="video-gallery-grid">
+                    <div class="video-item fade-in">
+                        <video width="100%" style="border: 2px solid rgba(139, 58, 82, 0.15); border-radius: 12px; background: #000;" controls>
+                            <source src="./video/5.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-item fade-in delay-1">
+                        <video width="100%" style="border: 2px solid rgba(139, 58, 82, 0.15); border-radius: 12px; background: #000;" controls>
+                            <source src="./video/6.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-item fade-in delay-2">
+                        <video width="100%" style="border: 2px solid rgba(139, 58, 82, 0.15); border-radius: 12px; background: #000;" controls>
+                            <source src="./video/7.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-item fade-in delay-3">
+                        <video width="100%" style="border: 2px solid rgba(139, 58, 82, 0.15); border-radius: 12px; background: #000;" controls>
+                            <source src="./video/8.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-item fade-in delay-4">
+                        <video width="100%" style="border: 2px solid rgba(139, 58, 82, 0.15); border-radius: 12px; background: #000;" controls>
+                            <source src="./video/9.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-item fade-in" style="animation-delay: 1.0s;">
+                        <video width="100%" style="border: 2px solid rgba(139, 58, 82, 0.15); border-radius: 12px; background: #000;" controls>
+                            <source src="./video/10.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-item fade-in" style="animation-delay: 1.2s;">
+                        <video width="100%" style="border: 2px solid rgba(139, 58, 82, 0.15); border-radius: 12px; background: #000;" controls>
+                            <source src="./video/11.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-item fade-in" style="animation-delay: 1.4s;">
+                        <video width="100%" style="border: 2px solid rgba(139, 58, 82, 0.15); border-radius: 12px; background: #000;" controls>
+                            <source src="./video/WhatsApp Video 2026-02-20 at 9.48.04 PM.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- HIDDEN PAGE TRIGGER -->
+        <section id="section6" class="section">
+            <div class="container">
+                <p class="hidden-trigger" onclick="showHiddenGate()">Some things are not for display.</p>
+            </div>
+        </section>
+
+        <!-- NEXT BIRTHDAY SECTION (LOCKED) -->
+        <section id="section7" class="section">
+            <div class="container">
+                <h2>For Your Next Birthday.</h2>
+                <div id="nextBirthdayContent" class="locked-section">
+                    <div class="lock-icon">🔒</div>
+                    <p id="nextBirthdayLockMessage"><strong>This letter unlocks in <span id="daysUntilUnlock"></span> days.</strong></p>
+                    <p class="small-text"><strong>Because I plan to still be here.</strong></p>
+                </div>
+                <div id="nextBirthdayLetter" class="letter-content hidden">
+                    <p><strong>For Your Next Birthday.</strong></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- HIDDEN PAGE PASSWORD GATE -->
+    <div id="hiddenGate" class="gate-container hidden">
+        <div class="gate-content">
+            <p style="font-size: 0.9rem; margin-bottom: 2rem;">Enter the name I call you when it's just us.</p>
+            <div class="input-group">
+                <input type="text" id="hiddenPasswordInput" placeholder="Answer" />
+                <button onclick="checkHiddenPassword()">Enter</button>
+            </div>
+            <p id="hiddenPasswordError" class="error-message"></p>
+            <button class="back-btn" onclick="closeHiddenGate()">↑ Back</button>
+        </div>
+    </div>
+
+    <!-- HIDDEN CONTENT PAGE -->
+    <div id="hiddenPage" class="hidden main-page">
+        <div class="container letter-section">
+            <button class="back-btn-hidden" onclick="backFromHidden()">← Back</button>
+            
+            <div class="hidden-letter-content">
+                <p>You are not loud.</p>
+                <p>You are not dramatic.</p>
+                <p>You are steady.</p>
+                <p><br></p>
+                <p>And that's rare.</p>
+                <p><br></p>
+                <p>I don't admire you because it's your birthday.</p>
+                <p>I admire you because of who you are on random Tuesdays.</p>
+                <p><br></p>
+                <p>I'm not rushing you.</p>
+                <p>I'm not pressuring you.</p>
+                <p><br></p>
+                <p>I'm just choosing you — calmly.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUDIO ELEMENTS (Hidden) -->
+    <audio id="backgroundMusic"></audio>
+    <audio id="specialAudio"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
