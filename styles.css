@@ -1106,6 +1106,12 @@ h2 {
 .reveal-on-scroll { opacity: 0; transform: translateY(18px); transition: opacity 0.9s ease, transform 0.9s ease; }
 .reveal-on-scroll.visible { opacity: 1; transform: translateY(0); }
 
+/* Ensure content is visible even if JS doesn't run immediately */
+.reveal-on-scroll { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+/* Hide any remaining image caption elements sitewide */
+.image-caption { display: none !important; }
+
 @media (max-width: 700px) {
     .letter-paper { padding: 1.6rem; border-radius: 12px; }
     .letter-text { font-size: 1rem; line-height: 1.7; }
