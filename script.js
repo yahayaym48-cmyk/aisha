@@ -1,7 +1,6 @@
 /* ========== CONFIGURATION (EDIT THESE) ========== */
 const CONFIG = {
-    mainPassword: 'Aisha',          // Main site password (case-sensitive)
-    hiddenPassword: 'Aisha',        // Hidden page password (case-insensitive)
+    // Authentication removed — site is public
     giftUnlockDate: '2026-08-27',   // Gift unlock date (YYYY-MM-DD)
     nextBirthdayDate: '2027-02-21', // Next birthday date (YYYY-MM-DD)
     
@@ -81,98 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update countdowns (only if the related elements exist)
     updateCountdowns();
     setInterval(updateCountdowns, 1000);
-    
-    // Focus password input
-    const passwordInput = document.getElementById('passwordInput');
-    passwordInput.focus();
-    
-    // Allow Enter key for passwords
-    passwordInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') checkPassword();
-    });
 });
 
-/* ========== PASSWORD GATE ========== */
-function checkPassword() {
-    const inputPassword = document.getElementById('passwordInput').value;
-    const errorEl = document.getElementById('passwordError');
-    
-    if (inputPassword === CONFIG.mainPassword) {
-        errorEl.textContent = '';
-        revealSite();
-    } else {
-        errorEl.textContent = 'Not quite.';
-        document.getElementById('passwordInput').value = '';
-        document.getElementById('passwordInput').focus();
-    }
-}
-
-function revealSite() {
-    const gate = document.getElementById('passwordGate');
-    const site = document.getElementById('mainSite');
-    
-    gate.classList.add('hidden');
-    site.style.opacity = '0';
-    site.classList.remove('hidden');
-    
-    setTimeout(() => {
-        site.style.transition = 'opacity 0.6s ease-in-out';
-        site.style.opacity = '1';
-    }, 50);
-    
-    // Start background music
-    const bgMusic = document.getElementById('backgroundMusic');
-    if (bgMusic.src) {
-        bgMusic.play().catch(err => {
-            console.log('Audio autoplay prevented:', err);
-        });
-    }
-}
-
-/* ========== HIDDEN PAGE ========== */
-function showHiddenGate() {
-    const hiddenGate = document.getElementById('hiddenGate');
-    const hiddenInput = document.getElementById('hiddenPasswordInput');
-    
-    hiddenGate.classList.remove('hidden');
-    hiddenInput.focus();
-    
-    // Allow Enter key
-    hiddenInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') checkHiddenPassword();
-    });
-}
-
-function closeHiddenGate() {
-    document.getElementById('hiddenGate').classList.add('hidden');
-    document.getElementById('hiddenPasswordInput').value = '';
-    document.getElementById('hiddenPasswordError').textContent = '';
-}
-
-function checkHiddenPassword() {
-    const inputPassword = document.getElementById('hiddenPasswordInput').value.toLowerCase();
-    const errorEl = document.getElementById('hiddenPasswordError');
-    
-    if (inputPassword === CONFIG.hiddenPassword.toLowerCase()) {
-        errorEl.textContent = '';
-        revealHiddenPage();
-    } else {
-        errorEl.textContent = 'Not quite. Try again.';
-        document.getElementById('hiddenPasswordInput').value = '';
-        document.getElementById('hiddenPasswordInput').focus();
-    }
-}
-
-function revealHiddenPage() {
-    document.getElementById('hiddenGate').classList.add('hidden');
-    document.getElementById('hiddenPage').classList.remove('hidden');
-}
-
-function backFromHidden() {
-    document.getElementById('hiddenPage').classList.add('hidden');
-    document.getElementById('hiddenPasswordInput').value = '';
-    document.getElementById('hiddenPasswordError').textContent = '';
-}
+/* Authentication removed: site is public */
 
 /* ========== SMOOTH SCROLL ========== */
 function smoothScroll(sectionId) {
