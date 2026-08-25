@@ -826,6 +826,14 @@ h2 {
     box-shadow: 0 30px 80px rgba(45,27,34,0.25);
 }
 
+/* Prevent background scrolling when modal is open */
+.modal-open {
+    overflow: hidden;
+    height: 100%;
+}
+
+.envelope .paper { position: relative; }
+
 .close-letter {
     position: absolute;
     right: 1rem;
@@ -856,6 +864,16 @@ h2 {
     .seal { width: 42px; height: 42px; right: 0.9rem; }
     .envelope { padding: 1.1rem 1rem; }
 }
+
+/* ========== Chapter-specific headings (larger & unique) ========== */
+#section2 h2 { font-size: 3.8rem; color: #7b2e3a; letter-spacing: 0.04em; text-align: left; }
+#section2b h2 { font-size: 3.2rem; color: #6b3440; font-style: italic; text-align: left; }
+#memories h2 { font-size: 3.6rem; color: #5a2630; text-transform: uppercase; letter-spacing: 0.08em; }
+#open-when h2 { font-size: 3.6rem; color: #b82f3a; text-align: left; }
+#future h2 { font-size: 3.2rem; color: #6e3444; }
+#for-my-baby h2 { font-size: 3.6rem; color: #8b3a52; }
+#always-mean h2 { font-size: 3rem; color: #5d2a33; }
+#final h2 { font-size: 2.8rem; color: #4a2a2f; }
 
 .letter-card summary {
     list-style: none;

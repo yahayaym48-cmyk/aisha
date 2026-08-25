@@ -410,6 +410,7 @@ With all my love,
         // Envelope behavior fallback
         function closeAllEnvelopes(){
             document.querySelectorAll('.envelope.open').forEach(function(el){ el.classList.remove('open'); });
+            document.body.classList.remove('modal-open');
         }
 
         function initEnvelopes(){
@@ -425,12 +426,16 @@ With all my love,
                     e.stopPropagation();
                     var isOpen = env.classList.contains('open');
                     closeAllEnvelopes();
-                    if(!isOpen) env.classList.add('open');
+                    if(!isOpen){
+                        env.classList.add('open');
+                        // lock background scroll
+                        document.body.classList.add('modal-open');
+                    }
                 });
             });
 
             document.querySelectorAll('.close-letter').forEach(function(btn){
-                var handler = function(e){ e.stopPropagation(); var env = btn.closest('.envelope'); if(env) env.classList.remove('open'); };
+                var handler = function(e){ e.stopPropagation(); var env = btn.closest('.envelope'); if(env) env.classList.remove('open'); document.body.classList.remove('modal-open'); };
                 btn._copilotBound = handler;
                 btn.addEventListener('click', handler);
             });
