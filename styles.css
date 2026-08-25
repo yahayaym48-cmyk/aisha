@@ -816,17 +816,21 @@ h2 {
 }
 
 .envelope.open .paper {
-    /* Fullscreen-ish centered panel for readability */
-    width: min(980px, 98vw);
-    height: calc(100vh - 64px);
-    max-height: calc(100vh - 64px);
+    /* Fullscreen takeover */
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
     overflow: auto;
-    border-radius: 12px;
-    padding: 2.5rem 2.2rem;
+    border-radius: 0;
+    padding: 3rem 2.2rem;
     background: white;
-    box-shadow: 0 40px 120px rgba(0,0,0,0.45);
-    margin: 0 auto;
+    box-shadow: none;
+    margin: 0;
 }
+
+.envelope.open .paper .letter-inner { max-width: 940px; margin: 0 auto; }
+
+.envelope.open .close-letter { position: fixed; right: 18px; top: 18px; z-index: 2400; }
 
 /* Prevent background scrolling when modal is open */
 .modal-open {
