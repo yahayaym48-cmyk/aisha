@@ -842,10 +842,12 @@ h2 {
 }
 
 .envelope-item { display:flex; align-items:center; justify-content:center; }
+/* Prevent envelope contents from overflowing into other sections */
+.envelope-item { overflow: hidden; }
 
 .envelope {
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
     aspect-ratio: 5 / 3;
     position: relative;
     perspective: 1200px;
@@ -895,30 +897,32 @@ h2 {
 
 .letter {
     position: absolute;
-    bottom: -10%;
+    bottom: -6%;
     left: 6%;
     right: 6%;
-    height: 86%;
+    height: 82%;
     pointer-events: none;
+    overflow: hidden;
 }
 
 .paper {
     position: absolute;
-    bottom: -5%;
+    bottom: -2%;
     left: 0;
     right: 0;
     background: linear-gradient(180deg,#fff,#fffdfd);
     border: 1px solid rgba(212,175,185,0.28);
     border-radius: 6px;
-    padding: 1.2rem 1.2rem 2rem 1.2rem;
+    padding: 1rem 1rem 1.6rem 1rem;
     transform: translateY(110%);
-    transition: transform 0.9s cubic-bezier(.22,1,.36,1);
-    box-shadow: 0 30px 60px rgba(139,58,82,0.12);
+    transition: transform 0.6s cubic-bezier(.22,1,.36,1);
+    box-shadow: 0 20px 46px rgba(139,58,82,0.10);
     pointer-events: auto;
     overflow-y: auto;
+    max-height: 68vh;
 }
 
-.letter-inner { color: var(--light-text); line-height:1.6; font-size:0.98rem; }
+.letter-inner { color: var(--light-text); line-height:1.6; font-size:0.95rem; }
 .letter-inner p { margin-bottom:0.8rem; }
 
 .close-letter { position:absolute; top:0.6rem; right:0.6rem; background:transparent; border:none; color:var(--deeper-rose); font-weight:600; cursor:pointer; }
@@ -1089,12 +1093,12 @@ h2 {
 /* ========== A LETTER I'LL ALWAYS MEAN STYLES ==========
    Handwritten letter / paper treatment placed before Epilogue */
 .always-mean-section { padding: 6rem 1.25rem; background: linear-gradient(180deg, rgba(255,245,247,0.92), rgba(250,245,250,0.94)); }
-.always-mean-section h2 { font-size: 2.4rem; margin-bottom: 1.5rem; color: var(--deeper-rose); }
-.letter-frame { display:flex; align-items:center; justify-content:center; padding: 1rem; }
-.letter-paper { width: 100%; max-width: 720px; background: linear-gradient(180deg,#fffaf6,#fff6fb); border-radius: 14px; padding: 1.6rem; box-shadow: 0 20px 48px rgba(139,58,82,0.07); border: 1px solid rgba(212,175,185,0.22); position: relative; overflow: auto; max-height: 70vh; }
-.letter-paper::before { content: ''; position: absolute; inset: 0; background-image: url('./images/WhatsApp Image 2026-08-25 at 5.53.47 AM.jpeg'); background-size: cover; background-position: center; opacity: 0.08; filter: saturate(0.6) blur(1px); }
+.always-mean-section h2 { font-size: 2rem; margin-bottom: 1rem; color: var(--deeper-rose); text-align: center; }
+.letter-frame { display:block; padding: 0.6rem 0.2rem; }
+.letter-paper { width: 100%; max-width: 720px; background: linear-gradient(180deg,#fffaf6,#fff6fb); border-radius: 12px; padding: 1.2rem; box-shadow: 0 16px 40px rgba(139,58,82,0.06); border: 1px solid rgba(212,175,185,0.18); position: relative; overflow: auto; max-height: 68vh; }
+.letter-paper::before { content: ''; position: absolute; inset: 0; background-image: url('./images/WhatsApp Image 2026-08-25 at 5.53.47 AM.jpeg'); background-size: cover; background-position: center; opacity: 0.06; filter: saturate(0.6) blur(1px); }
 .letter-paper::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,250,250,0.6), rgba(255,250,255,0.75)); }
-.letter-text { position: relative; z-index: 2; white-space: pre-wrap; font-family: var(--serif-font); font-size: 0.98rem; color: var(--deeper-rose); line-height: 1.6; padding: 0 0.4rem; }
+.letter-text { position: relative; z-index: 2; white-space: pre-wrap; font-family: var(--serif-font); font-size: 0.98rem; color: var(--deeper-rose); line-height: 1.6; padding: 0 0.6rem; }
 .letter-paper .tiny-hearts { position: absolute; top: 12px; right: 18px; z-index: 3; opacity: 0.9; }
 .letter-paper .tiny-hearts span { display:inline-block; width:10px; height:10px; background: rgba(232,154,181,0.9); transform: rotate(45deg); margin-left:6px; border-radius:2px; }
 
